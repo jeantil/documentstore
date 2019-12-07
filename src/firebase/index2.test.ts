@@ -8,7 +8,7 @@ const debug = debugFactory('ywg:store:firebase');
 describe('FirebaseStore User repository', () => {
   let container: StartedTestContainer;
   let config: FirebaseConfig;
-
+  let store: FirebaseStore;
   beforeEach(async () => {
     process.env.FIREBASE_MODE = 'EMULATOR';
     config = FirebaseConfig.of(process.env);
@@ -19,16 +19,18 @@ describe('FirebaseStore User repository', () => {
     debug('container started');
     const emulatorHost = `localhost:${emulatorPort}`;
     process.env.FIRESTORE_EMULATOR_HOST = emulatorHost;
+    store = new FirebaseStore(config);
   });
   afterEach(async () => {
     //stop docker container
     debug('stopping container');
-    container && container.stop();
+    await store.close();
+    await container.stop();
     debug('container stopped');
   });
   it(`should delete tokens `, async () => {
     debug('test starting');
-    const store = new FirebaseStore(config);
+
     const token = {
       id: uuid.v4(),
       value: '000000',

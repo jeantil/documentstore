@@ -199,6 +199,7 @@ class FirebaseEventSourcedStore<
 class FirebaseStore implements Store {
   underlying: FirebaseFirestore.Firestore;
   tokens: DocumentStore<any>;
+  app: firebase.app.App;
 
   private initializeApp(config: FirebaseConfig): admin.app.App {
     const secret = {
@@ -222,18 +223,21 @@ class FirebaseStore implements Store {
     );
   }
   constructor(config: FirebaseConfig) {
-    const app =
+    this.app =
       config.mode === FirebaseMode.PROD
         ? this.initializeApp(config)
         : this.initializeTestApp(config);
 
-    const db = app.firestore();
+    const db = this.app.firestore();
 
     this.underlying = db;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.tokens = new FirebaseDocumentStore<any>(db.collection('tokens'), db);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     console.log('✔ connection to firebase', config.projectId, config.dbUrl);
+  }
+  close(): Promise<void> {
+    return this.app.delete();
   }
 }
 export default FirebaseStore;

@@ -40,4 +40,5 @@ class InMemoryDocumentStore<T> implements DocumentStore<T> {
 export default class InMemoryStore implements Store {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tokens: DocumentStore<any> = new InMemoryDocumentStore<any>('tokens');
+  close = (): Promise<void> => Promise.resolve(null);
 }

@@ -41,6 +41,7 @@ export interface Store {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   tokens: DocumentStore<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  close(): Promise<void>;
 }
 
 const StoreProvider = (config: FirebaseConfig): Store => {
