@@ -1,0 +1,37 @@
+image: node:10-slim
+
+cache:
+  paths:
+    - node_modules/.cache.
+    - .yarn-cache
+
+before_script:
+  - apt-get update -qq && apt-get install
+
+stages:
+  - verify
+
+lint:
+  stage: verify
+  before_script:
+    - yarn config set cache-folder .yarn
+    - yarn install --frozen-lockfile --cache-folder .yarn-cache
+  script: yarn lint .
+
+test:
+  stage: verify
+  before_script:
+    - yarn config set cache-folder .yarn
+    - yarn install --frozen-lockfile --cache-folder .yarn-cache
+    - yarn add -W --dev codecov --cache-folder .yarn-cache
+  script:
+    - yarn jest
+      --coverage
+  after_script:
+    - yarn run codecov --token="${CODECOV_TOKEN}"
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    paths:
+      - coverage/
+    reports:
+      junit: coverage/clover.xml
