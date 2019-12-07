@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FirebaseConfig should fail on empty FIREBASE_CLIENT_EMAIL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_CLIENT_EMAIL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on empty FIREBASE_DB_URL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_DB_URL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on empty FIREBASE_PRIVATE_KEY 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PRIVATE_KEY\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on empty FIREBASE_PROJECT_ID 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PROJECT_ID\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on missing FIREBASE_CLIENT_EMAIL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_CLIENT_EMAIL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on missing FIREBASE_DB_URL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_DB_URL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on missing FIREBASE_PRIVATE_KEY 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PRIVATE_KEY\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on missing FIREBASE_PROJECT_ID 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PROJECT_ID\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on null FIREBASE_CLIENT_EMAIL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_CLIENT_EMAIL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on null FIREBASE_DB_URL 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_DB_URL\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on null FIREBASE_PRIVATE_KEY 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PRIVATE_KEY\\"
+]"
+`;
+
+exports[`FirebaseConfig should fail on null FIREBASE_PROJECT_ID 1`] = `
+"Invalid Firebase configuration
+missing or invalid keys : [
+  \\"FIREBASE_PROJECT_ID\\"
+]"
+`;
