@@ -13,6 +13,7 @@ describe('FirebaseStore User repository', () => {
   beforeEach(async () => {
     process.env.FIREBASE_MODE = 'EMULATOR';
     config = FirebaseConfig.of(process.env);
+    debug('starting container');
     container = await new GenericContainer('jeantil/firestore-emulator')
       .withExposedPorts(8080)
       .start();
