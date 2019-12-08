@@ -1,5 +1,14 @@
 image: node:10-slim
 
+# from https://gitlab.com/gitlab-org/gitlab-runner/issues/2255
+# When using dind, it's wise to use the overlayfs driver for
+# improved performance.
+variables:
+  DOCKER_HOST: tcp://docker:2375
+
+services:
+  - docker:dind
+
 cache:
   paths:
     - node_modules/.cache.
