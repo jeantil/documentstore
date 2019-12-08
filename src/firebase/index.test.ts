@@ -18,9 +18,10 @@ describe('FirebaseStore User repository', () => {
       .withExposedPorts(8080)
       .start();
     const emulatorPort = container.getMappedPort(8080);
+
+    // eslint-disable-next-line require-atomic-updates
+    process.env.FIRESTORE_EMULATOR_HOST = `localhost:${emulatorPort}`;
     debug('container started');
-    const emulatorHost = `localhost:${emulatorPort}`;
-    process.env.FIRESTORE_EMULATOR_HOST = emulatorHost;
     store = new FirebaseStore(config);
   });
 
